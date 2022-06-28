@@ -1,0 +1,675 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DevOps</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="333775b0-441e-4ef7-a867-7471facc0e01" class="page sans"><header><img class="page-cover-image" src="https://images.ctfassets.net/5276wquttznv/YwmoWLWsH9xZZcyBBMke1/a21e4375f7b884960086a91b3920e708/cloud-devops-services-main-banner.png?w=1920&amp;q=100" style="object-position:center 0%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Sem_Ttulo-2.png"/></div><h1 class="page-title">DevOps</h1></header><div class="page-body"><h1 id="3ee2e7c7-cff4-43ab-b529-e66ece2d12a6" class="">O que é DevOps?</h1><p id="d6be5d94-7422-4a3a-a5d5-d96d48933a27" class="">DevOps é uma <strong>abordagem de cultura, automação e design</strong> de plataforma que tem como objetivo agregar mais valor aos negócios e <strong>aumentar sua capacidade de resposta às mudanças por meio de entregas de serviços rápidas e de alta qualidade</strong>. Tudo isso é possível por meio da disponibilização de serviços de TI rápidos e <strong>iterativos</strong>. Adotar o DevOps significa conectar aplicações legadas a <strong>uma infraestrutura e aplicações modernas e nativas em nuvem</strong>. <em>(Red Hat, 2021)</em></p><p id="248f81a8-615d-46a9-8ed5-4e94e91ca99c" class="">
+</p><figure id="c1d6f22a-a647-4d11-9a5c-c6e08c674ab9" class="image"><a href="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled.png"><img style="width:1076px" src="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled.png"/></a></figure><h2 id="9fe2fc09-a997-4c99-91bc-d75af2762df5" class=""><mark class="highlight-red">Dev</mark></h2><p id="e74150bd-ec43-42b2-99ed-41b5de6b7e3c" class="">Planejamento e desenvolvimento, abordando fases de verificação, testes e entrega do sistema.</p><h2 id="86bf9e4e-9d99-43dd-839e-f0092a3b9d28" class=""><mark class="highlight-red">Ops</mark></h2><p id="e1ac7148-6ddd-4cb5-9f4f-e0f6662ca430" class="">Operação e infraestrutura, contempla a distribuição para o ambiente de produção, configuração, suporte, monitoramento e feedbacks.</p><h1 id="24f8e414-9baa-4d98-a816-7a5a943125ff" class="">Não é DevOps</h1><h3 id="a837cce6-ad77-4959-9690-a6f9c703fd62" class="">Framework</h3><p id="e72b0b98-3801-41dd-9722-c205f4c71ff2" class="">Modelos e padrões de gestão a serem adotados na condução de um projeto.</p><h3 id="c7c47c5c-df4b-4cc8-b5c4-55af2fe2b2bf" class="">Ferramenta</h3><p id="8f8195a3-ad0c-4f01-a16b-bc7de0800f4c" class="">Ferramentas de desenvolvimento e gestão, como IDEs e softwares de monitoramento.</p><h3 id="75088a37-6610-4280-a9dd-3e466d3ea24b" class="">Produto</h3><p id="ccbb7385-23d0-4bab-9d00-04c17780cdf1" class="">Software ou sistema desenvolvido pela empresa ou desenvolvedor.</p><h3 id="d2219d7b-99df-4a9b-b878-1c9cae43287d" class="">Tecnologia</h3><p id="a1fca04f-6274-4ff5-8742-581167c6680a" class="">Conjunto de tecnologias da computação como computadores, redes, linguagens de programação</p><h1 id="4003a2da-f177-4bde-88cd-ff4bd1387dbb" class="">Porque adotar a cultura DevOps</h1><h2 id="6e14e14d-53df-467e-a39e-59eeffa2b104" class=""><mark class="highlight-red">Definições de cultura</mark></h2><ul id="7d27245b-186e-44a9-b131-e0325a3dbde2" class="bulleted-list"><li style="list-style-type:disc">As crenças, costumes, artes de uma sociedade grupo ou lugar.</li></ul><ul id="6dcd6aa0-c0bc-44a4-a7f6-4e2b4fc52e3a" class="bulleted-list"><li style="list-style-type:disc">Uma sociedade particular que tem suas próprias crenças, modos de vida, artes, etc.</li></ul><ul id="96b7c634-c306-4b3f-bf9d-bf43b6195585" class="bulleted-list"><li style="list-style-type:disc">Um modo de pensar, comportar-se ou trabalhar que existe em um lugar ou organização.</li></ul><p id="35f47cdb-8afd-43c1-881f-57a5de3c14c6" class="">
+</p><p id="c0d6295e-44c4-49e1-8b0d-229233384826" class="">Dessa forma o conceito de DevOps termina sendo mais vago, o que cria uma grande diferença entre a interpretação de diversos autores. No entanto existem alguns pontos que se tornaram obrigatórios na cultura DevOps e que podemos utilizar como um balizador para criarmos os nossos próprios entendimentos.</p><h2 id="cd30403e-86fd-40e6-bbb9-394ed56f80b9" class=""><mark class="highlight-red">Pontos obrigatórios de DevOps</mark></h2><ul id="c6c1fdd8-0ddb-424d-aca3-a7b4d3225085" class="bulleted-list"><li style="list-style-type:disc">Colaboração entre as equipes de Dev e Ops</li></ul><ul id="17336e67-2a98-4501-9963-87df36c94fe9" class="bulleted-list"><li style="list-style-type:disc">Ciclos de entregas rápidas</li></ul><ul id="f905e112-29eb-42c0-8088-cbedcf4b477d" class="bulleted-list"><li style="list-style-type:disc">Desenvolvimento Ágil</li></ul><ul id="d0036064-4ddf-4e38-b525-60134349542b" class="bulleted-list"><li style="list-style-type:disc">Integração e Entrega Contínua</li></ul><ul id="97883731-f56b-4fce-bf6d-49ea7243b866" class="bulleted-list"><li style="list-style-type:disc">Gerenciamento de Configuração de Softwares (GCS)</li></ul><ul id="c1b846f9-b4c8-474c-a606-a7e8a4bbcf47" class="bulleted-list"><li style="list-style-type:disc">Centralização de Logs</li></ul><ul id="83badb73-7d6c-4d9d-aeb0-d51ea58f3b7c" class="bulleted-list"><li style="list-style-type:disc">Monitoramento e coleta de dados e métricas</li></ul><ul id="83c93a11-2400-4b58-81d6-aefbebfb326d" class="bulleted-list"><li style="list-style-type:disc">Infraestrutura escalável e automatizada</li></ul><h2 id="ecd404cf-90af-4aca-981b-eafb50f8ce5a" class=""><mark class="highlight-red">Pontos Primordiais</mark></h2><ul id="1ef22f03-af0c-4be5-89db-7446e05e4a50" class="bulleted-list"><li style="list-style-type:disc">Mudança de Cultura e mentalidade.</li></ul><ul id="f47de153-4212-4db6-822d-f812874a24b6" class="bulleted-list"><li style="list-style-type:disc">Manter a comunicação frequente, aumentar a eficiência e melhorar a qualidade dos serviços disponibilizados aos clientes.</li></ul><ul id="d9ed01e5-2680-4e81-afed-5a7b8ec6cbc2" class="bulleted-list"><li style="list-style-type:disc">Remover a barreira entre dois silos: Desenvolvimento e Operações.</li></ul><ul id="f6175522-96ab-4101-87d4-60b4a5ba3826" class="bulleted-list"><li style="list-style-type:disc">As equipes assumem responsabilidade total pelos serviços. geralmente indo além do escopo tradicional de seus cargos e títulos definidos.</li></ul><ul id="89eda1c8-5a47-46d7-acec-d9bbf5e06d43" class="bulleted-list"><li style="list-style-type:disc">As duas equipes trabalham juntas para otimizar a produtividade dos desenvolvedores e confiabilidade das operações.</li></ul><ul id="e956c8f4-87a4-4208-8d37-6fc47c941736" class="bulleted-list"><li style="list-style-type:disc">As equipes de controle de qualidade e segurança também podem tornar-se altamente integradas a essas equipes.</li></ul><h1 id="d203a7df-c83a-4e22-b9a7-7b30fbe2a22d" class="">Como surgiu o DevOps</h1><p id="67d4807b-b5af-4da9-b295-042950528915" class="">Visando as necessidades das empresas para se manterem relevantes no cenário econômico, em 2009 surgiu a cultura DevOps onde o <strong>desenvolvimento (DEV)</strong> e a <strong>infraestrutura e os sistemas (OPS) </strong>estão devidamente preparados para trabalhar em conjunto. As áreas precisam ser compatíveis. Caso contrário, pode acabar dificultando todo o desenvolvimento de projetos.</p><h1 id="518ff1e1-0fcf-4188-afd4-c18354cb5af9" class="">Ambiente de Dev e Ops</h1><p id="89cfada0-57c5-4d26-9ab7-bb6e4aa187e6" class="">Depois do desenvolvimento do sistema a equipe de <strong>DEV</strong> entrega o novo produto para a equipe de <strong>OPS</strong> que deverá manter a o sistema em funcionamento com o máximo de disponibilidade possível. <strong>DEV</strong> tentara não alterar o código evitando que as atualizações causem instabilidade, no entanto a correção de Bugs é sempre necessária. A equipe de <strong>OPS</strong> deve manter o sistema no ar mesmo com as alterações causando instabilidade, para isso manterá backups das versão anteriores. Essa relação gera desgastes entre as equipes.</p><h1 id="10ac4c53-2310-4f0d-b5dd-a7738107c382" class="">Conceito do DevOps</h1><p id="d0e902ec-005e-446c-9798-cd3ca9f9841b" class=""><strong>DevOps</strong> tem haver com <strong>pessoas</strong> e sua capacidade de se relacionarem e trocarem experiências. Dessa forma não podemos restringir essa cultura apenas às equipes de <strong>DEV</strong> e <strong>OPS</strong> mas estende-las a toda organização, uma vez que o foco deve ser o negócio e não a tecnologia. Essa mudança deve vir das <strong>pessoas</strong>, e seguir uma ideia de quebrar barreiras.</p><p id="61db1378-4afc-429c-87d0-88d66d85b3fd" class=""><strong>O ambiente corporativo deve dar liberdade para que todos expressem suas ideias e compartilhem experiências, independente do nível hierárquico ou área de atuação.</strong></p><p id="e410e59a-bca8-4113-bd4b-b0c60e890fcd" class="">Um bom teste para isso é ver se um estagiário se sente a vontade de propor novas ideias ao gerente ou mesmo a um diretor.</p><h1 id="c8ecd157-c326-494b-92fb-f0c688722310" class="">CAMS - Cultura, Automação, Mensuração e Compartilhamento</h1><h2 id="35fa51d9-0617-4fdc-945a-f4d2d9a483f6" class=""><mark class="highlight-red">A cultura DevOps</mark></h2><ul id="d259dfd4-d7a9-4870-9944-27176bd20014" class="bulleted-list"><li style="list-style-type:disc">Envolva-se cedo e com frequência</li></ul><ul id="3a00ff74-6700-4ade-a64a-8eaab326f94f" class="bulleted-list"><li style="list-style-type:disc">Destrua os silos</li></ul><ul id="460fde22-564c-4734-9b77-cb0652adb336" class="bulleted-list"><li style="list-style-type:disc">A interação entre as equipes é fundamental para o DevOps</li></ul><ul id="b373c684-66ba-48a3-9b83-3575616100cd" class="bulleted-list"><li style="list-style-type:disc">Esteja aberto a novas opções</li></ul><ul id="d37fc89a-1162-4eee-9784-25c26adb5ef6" class="bulleted-list"><li style="list-style-type:disc">Pare de Culpar</li></ul><ul id="a0ada708-503c-4b7b-ae70-8406fb66f003" class="bulleted-list"><li style="list-style-type:disc">Comunique-se com todos, independente da hierarquia</li></ul><ul id="6a2dd24b-8892-48d6-babd-b7b345346029" class="bulleted-list"><li style="list-style-type:disc">Envolva toda a equipe nos processos e decisões</li></ul><ul id="8d2bd02f-df41-4b56-ab21-ce2efe4e25c4" class="bulleted-list"><li style="list-style-type:disc">Sempre pergunte</li></ul><ul id="4e315b9a-b3ba-4f24-be69-c79222cb64e3" class="bulleted-list"><li style="list-style-type:disc">Nunca diga nunca</li></ul><ul id="9fbaaef6-e18f-4ff2-9b63-7cb6caeac0fd" class="bulleted-list"><li style="list-style-type:disc">Faça Stand-Ups diários (daily)</li></ul><h2 id="74814c21-8307-47a9-b26a-a81d5ac58604" class=""><mark class="highlight-red">Automação no DevOps</mark></h2><p id="7b9e7763-9bb8-405d-81df-938b50966b13" class="">Este é o ponto mais atrativo do DevOps para os gestores, pois trás um ganho de produtividade. Mas essa não é a razão do uso de Automação no DevOps.</p><ul id="f5ef8975-39cb-447a-9f26-c5e67f9aa6df" class="bulleted-list"><li style="list-style-type:disc">Evitar Defeitos;</li></ul><ul id="551963f3-d678-4954-98a9-f6f457c327b1" class="bulleted-list"><li style="list-style-type:disc">Criar consistência no software e no ambiente de operação</li></ul><ul id="4125da54-25dd-4db3-86f7-741b63d96683" class="bulleted-list"><li style="list-style-type:disc">Melhoria de Qualidade</li></ul><ul id="df11b6f7-70cd-4f5d-aba4-c30aaeaa1b83" class="bulleted-list"><li style="list-style-type:disc">Optimização de tarefas repetitivas.</li></ul><p id="8ead1b48-781f-4b69-937c-1ba07d9cae7d" class="">São exemplos de automações no DevOps o uso de controle de versões, automação de testes e Infraestrutura como código.</p><p id="9c6e09ea-a134-455c-a278-485386934723" class="">
+</p><p id="b41a2e0c-34a1-4004-8f4c-91de192c611a" class=""><strong>Vamos imaginar o seguinte cenário:</strong></p><p id="b4007050-26d5-40b4-80af-4d63d1a36d53" class="">A equipe de DEV implementa 4 novas funções por dia;</p><p id="87a85b18-a067-4677-b82f-01ec4dfd7dbc" class="">Agora a equipe de testes precisa validar as funções e para isso precisa colocar as atualizações no servidor de teste. Esse processo leva cerca de 20 minutos por função, se não ocorrer nenhum problema.</p><p id="c1186fa0-904b-4b5f-a4cd-f1093f2f771a" class=""><strong>Essa simples tarefa consome 320 horas por ano e pode ser facilmente automatizada!</strong></p><h3 id="dbf02699-4835-42e7-b321-2d3e8b3e23d5" class="">O que podemos automatizar</h3><ul id="ac522135-c85d-4f98-a4df-a171a730bfff" class="bulleted-list"><li style="list-style-type:disc">Builds</li></ul><ul id="73388b56-a6a3-46a5-9900-5b839f23ac6b" class="bulleted-list"><li style="list-style-type:disc">Implementações</li></ul><ul id="bb84432a-2afd-4c64-b3fd-cc187c9f79b0" class="bulleted-list"><li style="list-style-type:disc">Testes<ul id="1aef281e-2d55-4307-9823-5adebe9b09ca" class="bulleted-list"><li style="list-style-type:circle">Qualidade de código</li></ul><ul id="f566f755-e6e0-4506-b04a-c346eed957cc" class="bulleted-list"><li style="list-style-type:circle">Funcional</li></ul><ul id="8bfd3899-e2ce-45a8-85a5-f1e1a5f2b190" class="bulleted-list"><li style="list-style-type:circle">Integração</li></ul></li></ul><ul id="480ff0d7-1c99-4ff9-9042-629c1451824b" class="bulleted-list"><li style="list-style-type:disc">Optimização de tarefas repetitivas</li></ul><ul id="6d9c31d1-a78c-4faf-9c31-fb005e7ea087" class="bulleted-list"><li style="list-style-type:disc">Deploy</li></ul><ul id="aa52d48b-3d94-4ef0-be03-dec412822078" class="bulleted-list"><li style="list-style-type:disc">Release</li></ul><ul id="3d926871-ad76-41a2-85d6-e4c210e18461" class="bulleted-list"><li style="list-style-type:disc">Monitoramento</li></ul><h2 id="9e6c0f92-ccf6-448c-a154-65fcdce6e13c" class=""><mark class="highlight-red">Monitoramento no DevOps</mark></h2><p id="fd017a65-33a9-45cf-992c-de728f190f4c" class="">Para o processo de gestão e monitoramento de processos e atividades podemos partir de um pressuposto:</p><p id="0767e185-6481-4c39-a4a2-435e54c0826e" class=""><strong>Se Você Não Consegue Medir, Não Saberá &quot;Como&quot; ou &quot;O Que&quot; Melhorar!</strong></p><h3 id="f2386b99-57c0-4fed-94e4-0ffd1d99a9b9" class="">Obtenha métricas de</h3><ul id="c601483e-2909-4263-b6c9-00159620217e" class="bulleted-list"><li style="list-style-type:disc">Processos</li></ul><ul id="8b785835-3a01-46c4-bfe8-0659025bb010" class="bulleted-list"><li style="list-style-type:disc">Desempenho</li></ul><ul id="9eeffeb0-d5b3-45f7-8daf-041e8e0c664d" class="bulleted-list"><li style="list-style-type:disc">Pessoas.</li></ul><p id="c38f6e51-6d1a-4d15-a84f-f294ac87b31f" class="">Esses dados devem ser significativos e ter um fim especifico, além do processo de obtenção dos dados dever ser transparente e acessível por todos na organização.</p><h2 id="be256bab-3d50-4147-ad02-11e99050046f" class=""><mark class="highlight-red">Compartilhamento no DevOps</mark></h2><p id="318b1b8c-cbda-4b91-8ff3-b3ed136cdc8b" class="">O sucesso do DevOps em uma organização está ligado a capacidade de compartilhar dados entre as pessoas e equipes.</p><p id="3eda139b-ab1f-472d-9392-69c1da7bf9b8" class=""><strong>Sempre compartilhe suas ideias e problemas! Alguém já pode ter passado pela mesma situação e pode ter a resposta que você precisa.</strong></p><p id="e075f976-1938-4da9-a9ad-f5b023bdeb8f" class="">O compartilhamento de sucessos e falhas também são muito importantes e podem evitar que membros de equipes deferentes gastem esforços tentando achar a solução para um mesmo problema ou encontrar uma ferramenta que facilite parte do trabalho.</p><h1 id="d337ad89-4272-4a1d-9688-07f596f476c6" class="">Pessoas, Projetos e Tecnologias</h1><h2 id="1f424302-5b69-49f1-ab8a-e4ec79aa5fa7" class=""><mark class="highlight-red">Pessoas no DevOps</mark></h2><p id="254e6a34-ed4e-48e6-ba3f-5339887d6ef6" class="">As pessoas que fazem parte de uma organização com a cultura de DevOps devem sempre estar atentas às novas tecnologias, e são raros os momentos onde contratar um novo funcionário para atender uma demanda especifica será vantajoso.</p><ul id="12680d95-0758-44ea-a59a-71ecba07d8e9" class="bulleted-list"><li style="list-style-type:disc">As pessoas devem <strong>cooperar</strong> e <strong>colaborar</strong> para atingir os objetivos</li></ul><ul id="540ed43c-c335-4f8f-a87d-c42b852685a6" class="bulleted-list"><li style="list-style-type:disc">Ciclos contínuos de capacitação devem ocorrer, mantendo as equipes sempre atualizadas sobre as novas tecnologias.</li></ul><h2 id="0dc5ae60-1e1c-46fb-bf4f-c97f4425f86b" class=""><mark class="highlight-red">Projetos/Processos no DevOps</mark></h2><p id="3e715764-4e46-4392-93c8-ba78e1974024" class="">Com a mudança na cultura da organização, os processos também sofrerão mudanças.</p><ul id="2067a47d-6f02-43af-be75-cedbd1e196cd" class="bulleted-list"><li style="list-style-type:disc">Os processos devem ser alterados para que Desenvolvimento e Operação colaborem durante o desenvolvimento<ul id="23546692-bc4d-46fc-a4b5-35bb8bc596cc" class="bulleted-list"><li style="list-style-type:circle">Em alguns casos os temas de segurança também devem ser envolvidos nos processo visando otimizar o desenvolvimento e reduzir as brechas de segurança. Neste caso podemos chamar de <strong>DevSecOps</strong></li></ul></li></ul><ul id="2e0a036a-5953-4e26-9bea-70bf31bd1dfc" class="bulleted-list"><li style="list-style-type:disc">Automatizar a maior parte possível dos processos, desde sua concepção</li></ul><ul id="3fdd267e-9dbc-4478-9a6f-5633b65f3410" class="bulleted-list"><li style="list-style-type:disc">Remover restrições</li></ul><ul id="ba6f1223-d57e-4396-8cf8-e2a86c1f6f30" class="bulleted-list"><li style="list-style-type:disc">Criar fluxos de entrega</li></ul><ul id="0775e4b0-5e63-43a3-ba39-a6943218f10e" class="bulleted-list"><li style="list-style-type:disc">Loops de feedback devem estar presentes em todas as fases</li></ul><h2 id="45dbf63f-c20a-467e-ad48-d0eab1898fbf" class=""><mark class="highlight-red">Tecnologias/Ferramentas no DevOps</mark></h2><p id="47523eca-8380-44f4-a82a-cc9820f92377" class="">As ferramentas, ou tecnologias, nos ajudarão em todo o processo de adoção do DevOps. Sendo que diferentes ferramentas auxiliarão em diferentes processos.</p><p id="0b2a4cd9-ebba-4582-9852-3e88a52460fa" class="">As ferramentas podem nos auxiliar nos processos de:</p><ul id="30c0af6d-b968-4842-9210-d897865bf700" class="bulleted-list"><li style="list-style-type:disc">Colaboração;</li></ul><ul id="a5debb16-735c-40e7-9e03-88e6a0572c31" class="bulleted-list"><li style="list-style-type:disc">Desenvolvimento;</li></ul><ul id="0ef45494-1e07-4fa0-9d23-8831fa2c293c" class="bulleted-list"><li style="list-style-type:disc">Controle de qualidade;</li></ul><ul id="96de494d-5dde-4168-a98d-cd217a8ad0b9" class="bulleted-list"><li style="list-style-type:disc">Deploy;</li></ul><p id="2cac5742-e92b-4b80-8f1d-b4eaab8369ab" class=""><strong>Devemos estar atentos ao fato de que não existem ferramentas DevOps, o que as fazem especiais, nesse ambiente, é a forma como as utilizamos.</strong></p><ul id="dfb6774e-96cb-4f20-ba21-b02f24453a0e" class="bulleted-list"><li style="list-style-type:disc">Integração, Monitoramento e Entrega Contínua</li></ul><ul id="9dce4273-2066-4c71-93d1-0125cad8b506" class="bulleted-list"><li style="list-style-type:disc">Provisionamento em Nuvem</li></ul><ul id="d131c6fa-fbf8-4d5c-b0ba-dabeea7ea570" class="bulleted-list"><li style="list-style-type:disc">Gerenciamento de Configuração</li></ul><ul id="e064a72a-8a31-44b8-888f-88a7c5c1721c" class="bulleted-list"><li style="list-style-type:disc">Automação de Implantação</li></ul><p id="2abc6898-2338-478b-bf66-c6424943b7db" class="">
+</p><p id="dbbf7c4a-1c6a-49df-ada9-3b6371c02052" class="">Quando pensamos na aplicação de ferramentas para auxiliar os processos de DevOps, cinco áreas de atuação são normalmente citadas.</p><h2 id="7306c47c-453f-46bd-8508-79cbb3eaa4c4" class=""><mark class="highlight-red">Ferramentas aplicadas a Colaboração</mark></h2><h3 id="c8e030b0-e6af-4678-98c1-e18e5ede6bf4" class=""><strong>Gerenciamento de Projeto</strong></h3><ul id="0ba1660c-6bf9-4fc3-b195-17501208a528" class="bulleted-list"><li style="list-style-type:disc">Jira</li></ul><ul id="29c5008a-cdf4-40a5-927d-28daa9582ac5" class="bulleted-list"><li style="list-style-type:disc">Trello</li></ul><ul id="02bb2d0b-8cca-49f4-a526-14e5c57134a5" class="bulleted-list"><li style="list-style-type:disc">Basecamp</li></ul><h3 id="2d01b599-22e9-431b-b693-a6090e2061ea" class="">Gerenciamento de Ciclo de Vida da Aplicação (ALM) </h3><ul id="6f9201d2-5497-4aa9-b40d-8ad3de4a6fe4" class="bulleted-list"><li style="list-style-type:disc">Azure DevOps (antigo VSTS)</li></ul><ul id="83307a7e-cbfb-4944-b7cb-541f20e5eb86" class="bulleted-list"><li style="list-style-type:disc">Octane</li></ul><h3 id="698b6cd3-c340-46d3-9ec1-f642b0ca1db4" class="">Comunicação</h3><ul id="4ef54a33-17dc-4ad4-9b36-68267cea937e" class="bulleted-list"><li style="list-style-type:disc">Slack</li></ul><ul id="8e632ef8-c24f-4aeb-bfa9-230d29a2b222" class="bulleted-list"><li style="list-style-type:disc">MS Teams</li></ul><h3 id="77eed9fe-55b3-49f8-ae91-d378c655e1fc" class="">ChatOps</h3><ul id="d6ff4481-3510-4708-ba5c-c45093da8e49" class="bulleted-list"><li style="list-style-type:disc">COG</li></ul><ul id="dc483526-cf66-4062-9782-18e7e48b8006" class="bulleted-list"><li style="list-style-type:disc">LITA</li></ul><h3 id="27b321c8-eb0f-4e29-bda7-2d7bed87de4d" class="">Compartilhamento</h3><ul id="c0efd0c9-d4a5-468e-8b2f-d546067e10ea" class="bulleted-list"><li style="list-style-type:disc">Github</li></ul><h3 id="f485efbf-3555-4d95-9e33-bd7181e7718e" class="">Documentação</h3><ul id="7b1f9c95-6771-4e74-986f-23f5a39a9bec" class="bulleted-list"><li style="list-style-type:disc">Swagger</li></ul><ul id="f1627017-2722-4563-bc09-a4e1e40ba038" class="bulleted-list"><li style="list-style-type:disc">Apiblueprint</li></ul><h2 id="bb43a08f-9a5c-4109-8677-5dda9c611dd8" class=""><mark class="highlight-red">Ferramentas aplicadas a Construção</mark></h2><p id="5aa49a44-1647-44ae-9b8a-645c8a70d123" class="">As ferramentas de Construção estão ligadas ao suporte ao desenvolvimento:</p><h3 id="c82fcfdd-18eb-4f01-b636-f8c6068b4b58" class="">Versionamento de código</h3><ul id="fa07f5bd-d573-41c8-a845-d9ad6a0c8558" class="bulleted-list"><li style="list-style-type:disc">Git</li></ul><ul id="cc2adc42-c5aa-4943-946e-14c89b1c6fdc" class="bulleted-list"><li style="list-style-type:disc">SVN</li></ul><ul id="3e816149-6916-4ad7-a2e7-7c425ff23695" class="bulleted-list"><li style="list-style-type:disc">Bitbucket</li></ul><h3 id="dd7fcd65-b3e6-4943-9ba0-db8515a52589" class="">Integração Contínua</h3><ul id="77bb8104-8198-4cf2-9ee1-8ec4ab8b4416" class="bulleted-list"><li style="list-style-type:disc">Jenkins</li></ul><ul id="3db3c800-7da9-4372-aa6e-009fb0dcf58e" class="bulleted-list"><li style="list-style-type:disc">Travis Cl</li></ul><ul id="6e3cd718-d3b8-42fd-bc8b-963497d81c88" class="bulleted-list"><li style="list-style-type:disc">BamBoo</li></ul><h3 id="d67341b5-931e-4d93-861a-da4759d4a9c0" class="">Build</h3><ul id="8c3aa1a1-73f7-41b6-a2ca-4b4410c440fa" class="bulleted-list"><li style="list-style-type:disc">SMSBuild</li></ul><ul id="7da053c4-0ae6-450a-ac7e-212c99235687" class="bulleted-list"><li style="list-style-type:disc">Maven</li></ul><ul id="ec13366e-8e92-45ec-bc1d-0da4a40a5766" class="bulleted-list"><li style="list-style-type:disc">Gulp</li></ul><h3 id="366d978d-48ca-4e0f-b2c8-7830d4919446" class="">Gerenciamento de Banco de Dados</h3><ul id="79d82099-2383-4b74-800e-c66640ffab21" class="bulleted-list"><li style="list-style-type:disc">DBmaestro</li></ul><ul id="8f7233d3-4f46-40b1-ad05-a7b30dfc397e" class="bulleted-list"><li style="list-style-type:disc">Flyway</li></ul><ul id="d4ee3506-e8e8-4d79-8fef-8df06de0fbf3" class="bulleted-list"><li style="list-style-type:disc">Redgate</li></ul><h2 id="c8042705-f529-438d-89aa-ac1169404da1" class=""><mark class="highlight-red">Ferramentas aplicadas a Qualidade</mark></h2><p id="58f1e60f-acea-4618-8581-a6aad9c88d87" class="">As ferramentas de qualidade permitem aplicar testes que garantam uma boa experiência do usuário, além de permitir validar ambientes de catástrofe. Esse grupo de ferramentas esta dividido em:</p><h3 id="e42abc49-8422-41b3-92c0-2ff5c98475f5" class="">Teste de Unidade</h3><ul id="698e67dc-7a57-430a-b343-2e056f3a59ae" class="bulleted-list"><li style="list-style-type:disc">Qunit</li></ul><ul id="0b91f1de-d9c2-4545-b6ee-5aaa12cb06ac" class="bulleted-list"><li style="list-style-type:disc">Unit.net</li></ul><h3 id="67190f66-7cc6-4cae-b7be-78f623ddc8c7" class="">Desenvolvimento orientado a teste (TDD)</h3><ul id="3cce34f9-331b-4366-a30e-9bd8dbde7c0a" class="bulleted-list"><li style="list-style-type:disc">VectorCAST</li></ul><h3 id="db55a9b3-f4ff-40e9-bfe7-99f92f97fdce" class="">Desenvolvimento orientado ao comportamento (BDD)</h3><ul id="4ddf7adc-a616-47f3-ac17-a86a7a079b1c" class="bulleted-list"><li style="list-style-type:disc">Cucumber</li></ul><ul id="434f4603-c3a2-4f5b-b091-806839845bb3" class="bulleted-list"><li style="list-style-type:disc">Specflow</li></ul><h3 id="d3597bc9-f483-4cf3-93df-afa509bccecd" class="">Teste de Segurança</h3><ul id="e64a3fad-abf1-4055-b1e4-d5796024ca45" class="bulleted-list"><li style="list-style-type:disc">OWASP ZAP</li></ul><h3 id="5f27f46c-e97f-42c7-833a-be9133dae498" class="">Teste de Integração</h3><ul id="c02a4797-ccfb-46bb-b13c-10ac87182323" class="bulleted-list"><li style="list-style-type:disc">POSTMAN</li></ul><ul id="ca622080-8718-4d93-9a57-6ed1b2c0b78a" class="bulleted-list"><li style="list-style-type:disc">SoapUI</li></ul><ul id="7977e9b5-576f-482b-bd33-11200017d7b3" class="bulleted-list"><li style="list-style-type:disc">Teste Automatizado</li></ul><ul id="5cc711c0-8121-436f-aa9d-17c9aad30a47" class="bulleted-list"><li style="list-style-type:disc">Jasmine</li></ul><ul id="fadedd10-77c2-46aa-9971-5d69fb549e5c" class="bulleted-list"><li style="list-style-type:disc">Jmiter</li></ul><h2 id="76ecc88c-3adf-474d-910f-29b0a614b882" class=""><mark class="highlight-red">Ferramentas aplicadas a Implantação</mark></h2><p id="625b5ed5-0fcf-450d-981a-b7512ff4cb17" class="">Ferramentas de implantação auxiliam na automatização da equipe de operação:</p><h3 id="858db135-3567-432b-a437-85bcf489e4eb" class="">Implantação</h3><ul id="ffdbf9ad-f859-4c0b-9eee-e6f45844bfa1" class="bulleted-list"><li style="list-style-type:disc">Octopus Deploy</li></ul><ul id="be91c4f3-b241-436f-8eaa-360791486d6b" class="bulleted-list"><li style="list-style-type:disc">Urban{code}</li></ul><ul id="601509d0-b3bb-483f-8cf1-8d2b5b5aeebf" class="bulleted-list"><li style="list-style-type:disc">Rundeck</li></ul><h3 id="e7bd92f8-4b89-438d-9615-fda094d93656" class="">Gerenciamento de Configuração e Provisionamento</h3><ul id="ea17fd2e-d716-48fd-bbd0-3e25a913f006" class="bulleted-list"><li style="list-style-type:disc">Puppet</li></ul><ul id="04376295-a13a-4e3c-9712-ed1eeaa97b37" class="bulleted-list"><li style="list-style-type:disc">Terraform</li></ul><ul id="15dfce52-7f30-4fc1-bbd5-d0b9e177a28a" class="bulleted-list"><li style="list-style-type:disc">Ansible</li></ul><ul id="d95ee9f3-11d9-4e82-8f35-1909b08f3cad" class="bulleted-list"><li style="list-style-type:disc">Chef</li></ul><h3 id="3b062dad-eddd-485d-8c7d-5807e7d12593" class="">Gerenciamento de Artefatos</h3><ul id="941c98c7-7ea5-4083-aa35-59d1efcd3c7a" class="bulleted-list"><li style="list-style-type:disc">Docker</li></ul><ul id="53730683-cf72-4e9a-befb-3f510dfaec65" class="bulleted-list"><li style="list-style-type:disc">NPM</li></ul><ul id="5ff85b3d-a242-4003-ad9d-f66d31f4900d" class="bulleted-list"><li style="list-style-type:disc">Nuget</li></ul><ul id="9cb88dc7-9c25-4525-86ca-4b58d0784f81" class="bulleted-list"><li style="list-style-type:disc">Bower</li></ul><h1 id="a9577f57-3c07-4ae5-a20c-5ae46ee29046" class="">DevOps e Desenvolvimento Ágil</h1><p id="3b72184b-549a-4476-a166-7d54149c2c3f" class="">Os métodos Ágeis e DevOps podem auxiliar um ao outro dentro de uma corporação.</p><p id="4c4bf1a6-6962-4866-ae66-7647acf4c22c" class=""><strong>DevOps não é um substituto ao método Ágil.</strong></p><p id="41737ef5-f72c-441e-82ed-f4dc808a388c" class="">No entanto alguns pontos podem contrastar, como Velocidade, Implantação e Especialização das equipes.</p><figure id="2240e2d6-8892-431a-b425-c1e6309e6a1e" class="image"><a href="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled%201.png"><img style="width:682px" src="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled%201.png"/></a></figure><h1 id="e4b1728b-a5aa-4ea8-a76f-697845a65698" class="">Integração e entrega contínua (CI/CD)</h1><h2 id="c0a92f1f-14a5-4fad-87f4-df62a4959786" class="">Ciclo contínuo de desenvolvimento DevOops</h2><p id="f9359002-0c4c-4e45-ae22-46018dae4f28" class="">Mesmo que você seja um único desenvolvedor, e trabalhe sozinho para construir um aplicativo, ao implantar seu aplicativo, você deve responder por uma série de fatores, desde a <strong>criação do ambiente apropriado</strong>, até a definição da <strong>infraestrutura adequada</strong>, até <strong>conceitos básicos de segurança</strong>.</p><p id="95e6f4a0-94aa-4f98-a75d-980edbc2b363" class="">Dessa forma os desenvolvedores precisam fazer mais do que entregar o código do aplicativo, eles também precisam se preocupar com:</p><ul id="7d1fdb1a-4017-4237-b8ef-8863ae616240" class="bulleted-list"><li style="list-style-type:disc">A forma como os aplicativos são implantados</li></ul><ul id="4fd59e62-881b-449f-a2cf-916164a8e5b2" class="bulleted-list"><li style="list-style-type:disc">Protegidos</li></ul><ul id="f21fb351-b588-4eae-b5bc-06a62e6e194d" class="bulleted-list"><li style="list-style-type:disc">Operados</li></ul><ul id="6d1658b3-391a-423d-bffe-edb10e354601" class="bulleted-list"><li style="list-style-type:disc">Monitorados</li></ul><ul id="262e7853-0c71-4df3-b5e5-4e10c1e14efa" class="bulleted-list"><li style="list-style-type:disc">Dimensionados</li></ul><ul id="9eeb8c04-055c-464f-8463-58f88e521346" class="bulleted-list"><li style="list-style-type:disc">Mantidos</li></ul><p id="e3acd061-f8bd-4293-be5d-1094a2f5e832" class="">
+</p><p id="227837af-eebd-43f7-a607-c3d9e52472c8" class="">O ciclo de desenvolvimento <strong>DevOps</strong> pode ser dividido em cinco fases contínuas, sendo elas <mark class="highlight-red"><strong>Desenvolvimento, Teste, Integração, Deploy </strong></mark>e<mark class="highlight-red"><strong> Monitoramento</strong></mark>. Essas fases são comumente agrupadas em: <strong>Integração Contínua</strong> e <strong>Entrega Contínua (CI </strong>e<strong> CD)</strong></p><h2 id="e3db8bd2-7bbd-432a-a903-6ea4266329f1" class=""><mark class="highlight-red">Desenvolvimento Contínuo</mark></h2><p id="e755aeeb-551f-4224-bf3c-4cc59b1e3071" class="">Essa fase envolve o planejamento e codificação das funcionalidades do software.</p><p id="5e230fb8-8ff9-46aa-8e7b-3cd76dd8d258" class="">Qualquer linguagem de programação pode ser utilizada desde que possamos - utilizar uma sistema de versionamento.</p><p id="adc96015-f6ed-4d4a-b9b9-c634cb186cef" class="">Git e GitHub são as soluções mais comuns para fazer o versionamento.</p><h2 id="fa7e4393-5a86-4c60-a27a-1d964db6e776" class=""><mark class="highlight-red">Teste Contínuo</mark></h2><p id="06f4216b-d579-4b6e-9b31-4bfdaab43dd7" class="">Nessa fase as novas funcionalidades são testadas para verificar se as alterações não afetaram a execução do sistema.</p><p id="6163a9ef-58b3-4b53-928b-7161131adba3" class="">Durante a execução dos teste diversas formas de <strong>validação e verificação</strong> das funcionalidades podem ser executadas.</p><h2 id="043506e0-91dc-4585-a8df-c6343c235e46" class=""><mark class="highlight-red">Integração Contínua</mark></h2><p id="61dd2364-ee8a-41ff-bdda-0fceeb0a1295" class="">Esse é o processo de <strong>automação de Builds e testes</strong></p><p id="06cef923-aa2d-4279-8551-23296a950740" class="">As fases de Desenvolvimento e Teste terminam sendo incluídas dentro desta devido ao seu escopo mais abrangente e ao fato desta prever a automatização de parte das fases anteriores.</p><p id="f6b1c533-bd13-4f0b-9f49-5adeaab4a242" class="">Algumas ferramentas podem auxiliar nessa fase. Um exemplo é o <strong>Jenkins</strong>, ferramenta capaz de checar alterações no Git e realizar o Deploy de forma automática no ambiente de teste.</p><p id="5c6846db-ef8f-4525-a76b-17725b6ca106" class="">As ferramentas de CI são capazes de buscar códigos de funcionalidades de diversas fontes e integrá-las. Desta forma um teste de integração pode ser realizado e as equipes são notificadas em caso de bugs.</p><h2 id="d49aaf6d-956b-4c38-8855-cca7c36fad8c" class=""><mark class="highlight-red">Entrega e Deploy Contínuos</mark></h2><p id="316283f4-3977-45a1-a590-942c0c5166bf" class="">A <strong>entrega e o Deploy</strong> contínuos são conceitos muito próximos, uma vez que ambos são processos que obtém uma versão do sistema aprovado nos testes.</p><p id="d8647789-3d3e-4138-bfd6-aba3b58ccdde" class="">A diferença se dá no fato de que a entrega contínua libera uma versão que será validada manualmente pelo desenvolvedor e poderá ser liberada para o ambiente de produção.</p><p id="4d0d9ea7-e504-4ba6-b881-9613182ed238" class="">Já o Deploy continuo obtém uma versão que será automaticamente enviada para produção. Vale notar que em ambos os casos, a versão gerada pode ser enviada para um repositório de versões como o Docker, NPM (Node Package Manager).</p><figure id="1da77f95-2ced-492d-94b5-ac520a9aa6be" class="image"><a href="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled%202.png"><img style="width:826px" src="DevOps%20c1d6f22aa6474d119a5cc6e08c674ab9/Untitled%202.png"/></a></figure><h2 id="c2dc7f02-a8fe-405a-8626-72bb94fef033" class=""><mark class="highlight-red">Monitoramento Contínuo</mark></h2><p id="aec10aa1-e009-4e12-b042-9af98f4533b8" class="">O Monitoramento continuo é um ciclo de monitoramento que visa obter dados de performance e feedbacks de interação que permitam criar melhorias ao software.</p><p id="e38872cb-a818-4547-8792-8689b2c96cdf" class="">Nessa fase também é aconselhável manter a execução de teste, em especial os ligados a segurança.</p><p id="7e1a04d7-7845-4b16-af50-a084f291b439" class="">
+</p></div></article></body></html>
